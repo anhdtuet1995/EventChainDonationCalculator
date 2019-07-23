@@ -1,0 +1,174 @@
+<head>
+	<link rel='stylesheet' href='style.css' type='text/css' media='all' />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="col-container">
+		<div class="">
+			<p></p>
+			<p></p>
+		</div>
+		<div class="">
+			<div id="app" class="bootstrap-styles">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-centered">
+							<div class="panel panel-calculator">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="selectedCurrency" class="pull-right number-picker-label">Currency:</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="picker-group">
+												<select id="selectedCurrency" class="form-control">
+													<option value="USD">USD</option>
+													<option value="CAD">CAD</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="ticketType" class="pull-right number-picker-label"># of ticket types:</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="picker-group">
+												<select id="ticketType" class="form-control">
+													<option value="1">1</option>
+													<option value="2">2</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<!-- #1 ticket types -->
+									<div class="row" id="firstTicketType">
+										<div class="col-sm-6">
+											<label for="ticketCost1" class="pull-right number-picker-label">Ticket Price #1</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group">
+												<input type="number" min="0" step="0.01" id="ticketCost1" tabindex="1" class="form-control" value="0" >
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="ticketQuantity1" class="pull-right number-picker-label">Ticket Quantity #1</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="picker-group">
+												<div><span class="glyphicon glyphicon-minus-sign icons"></span>
+												</div>
+												<div class="number-picker-inputs">
+													<input type="number" min="1" step="1" tabindex="1" id="ticketQuantity1" class="form-control" value="0">
+												</div>
+												<div><span class="glyphicon glyphicon-plus-sign icons"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- #1 ticket types -->
+
+									<!-- #2 ticket types -->
+									<div class="row" id="costSecondTicketType" style="display: none;">
+										<div class="col-sm-6">
+											<label for="ticketCost" class="pull-right number-picker-label">Ticket Price #2</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group">
+												<input type="number" min="0" step="0.01" id="ticketCost2" tabindex="1" class="form-control" value="0" >
+											</div>
+										</div>
+									</div>
+									<div class="row" id="quantitySecondTicketType" style="display: none;">
+										<div class="col-sm-6">
+											<label for="ticketQuantity" class="pull-right number-picker-label">Ticket Quantity #2</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="picker-group">
+												<div><span class="glyphicon glyphicon-minus-sign icons"></span>
+												</div>
+												<div class="number-picker-inputs">
+													<input type="number" min="1" step="1" tabindex="1" id="ticketQuantity2" class="form-control" value="0">
+												</div>
+												<div><span class="glyphicon glyphicon-plus-sign icons"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- #2 ticket types -->
+
+
+
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="revenue" class="pull-right number-picker-label" style="" id="revenue-label">Event Revenue</label>
+										</div>
+										<div class="col-sm-6">
+											<div class="picker-group">
+												<div><span class="glyphicon glyphicon-minus-sign icons"></span>
+												</div>
+												<div class="number-picker-inputs input-group">
+													<div class="input-group-addon" id="revenue-currency">USD</div>
+													<input type="number" min="0" id="revenue" class="form-control" value="0" disabled="disabled">
+												</div>
+												<div><span class="glyphicon glyphicon-plus-sign icons"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row savings">
+										<div class="col-sm-6 col-sm-offset-3 col-centered">
+											<button type="submit" tabindex="4" class="form-control fee-button"><b>Calculate Savings</b></button>
+										</div>
+									</div>
+									
+									<div class="row result" style="display: none; overflow-x:auto;">
+										<table class="table result-table" align="center">
+										  <thead>
+											<tr>
+												<th scope="col"></th>
+												<th class="text-center" scope="col">EventChain</th>
+												<th class="text-center" scope="col">EventBrite</th>
+												
+											</tr>
+										  </thead>
+										  <tbody>
+											<tr style="border-bottom: 2px solid #000;">
+											  <td scope="row">Total fees*</th>
+											  <td class="text-center" id="eventChainFee"></td>
+											  <td class="text-center" id="eventBriteFee"></td>
+											  
+											</tr>
+											<tr>
+												<th scope="col" style="vertical-align:middle;">Savings</th>
+												<th class="text-center" id="savingsFee"></th>
+												<th class="text-center" id="savingsEventChain" scope="col" style="">Savings with EventChain</th>
+											</tr>
+										  </tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+								
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
