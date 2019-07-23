@@ -45,15 +45,17 @@ function calculateFee() {
 	console.log("eventChainFee = " + eventChainFee);
 	var eventBriteFee = 0.035 * revenue + 1.65 * parseFloat(totalTicketQuantity);
 	
-	var eventChainFeeRounded = Math.round(eventChainFee * 100) / 100;
-	var eventBriteFeeRounded = Math.round(eventBriteFee * 100) / 100;
-	var savingsFee = Math.round((eventBriteFeeRounded - eventChainFeeRounded) * 100) / 100;
+	var eventChainFeeRounded = parseFloat(eventChainFee).toFixed(2);
+	var eventBriteFeeRounded = parseFloat(eventBriteFee).toFixed(2);
+	var savingsFee = parseFloat(eventBriteFeeRounded - eventChainFeeRounded).toFixed(2);
 	var currencySelected = $("#selectedCurrency").val();
+	var eventChainDonation = parseFloat(eventChainFee * 0.1).toFixed(2);
 	
 	$("#revenue").val(revenueRounded);
 	$('#eventChainFee').text(currencySelected + " " + eventChainFeeRounded);
 	$('#eventBriteFee').text(currencySelected + " " + eventBriteFeeRounded);
 	$('#savingsFee').text(currencySelected + " " + savingsFee);
+	$('#eventChainDonation').text(currencySelected + " " + eventChainDonation);
 }
 
 $(".fee-button").click(function(){
