@@ -113,8 +113,8 @@
 												<div><span class="glyphicon glyphicon-minus-sign icons"></span>
 												</div>
 												<div class="number-picker-inputs input-group">
-													<div class="input-group-addon" id="revenue-currency">USD</div>
-													<input type="number" min="0" id="revenue" class="form-control" value="0" disabled="disabled">
+													<div class="input-group-addon" id="revenue-currency">$</div>
+													<input type="text" id="revenue" class="form-control" value="0.00" disabled="disabled"/>
 												</div>
 												<div><span class="glyphicon glyphicon-plus-sign icons"></span>
 												</div>
@@ -124,7 +124,7 @@
 									
 									<div class="row savings">
 										<div class="col-sm-6 col-sm-offset-3 col-centered">
-											<button type="submit" tabindex="4" class="form-control fee-button"><b>Calculate Savings</b></button>
+											<button type="submit" tabindex="4" class="form-control fee-button"><b>Calculate Donation</b></button>
 										</div>
 									</div>
 									
@@ -132,19 +132,9 @@
 										<table class="table result-table" align="center">
 										  <thead>
 											<tr>
-												<th class="text-center" scope="col">Total fees</th>
-												<th class="text-center" scope="col">Savings</th>
-												<th class="text-center" scope="col">Donations</th>
-												
+												<td class="text-center" id="eventchainDonation"></td>
 											</tr>
 										  </thead>
-										  <tbody>
-											<tr>
-											  <td class="text-center" id="eventChainFee"></th>
-											  <td class="text-center" id="savingsFee"></td>
-											  <td class="text-center" id="eventchainDonation"></td>
-											</tr>
-										  </tbody>
 										</table>
 									</div>
 								</div>

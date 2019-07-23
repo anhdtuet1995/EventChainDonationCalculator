@@ -1,3 +1,9 @@
+function numberWithCommas(x) {
+	var parts = x.split('.');
+	parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	return parts.join('.');
+}
+  
 function calculateFee() {
 
 	console.log("------------------------------------------");
@@ -33,28 +39,22 @@ function calculateFee() {
 	var revenue1 = parseFloat(ticketCost1) * parseFloat(ticketQuantity1); 
 	var revenue2 = parseFloat(ticketCost2) * parseFloat(ticketQuantity2);
 	var revenue = revenue1 + revenue2;
-	var revenueRounded = Math.round(revenue * 100) / 100;
+	var revenueRounded = parseFloat(revenue).toFixed(2);
 	
 	//calculate total ticket quantity
 	var totalTicketQuantity = parseInt(ticketQuantity1) + parseInt(ticketQuantity2);
 	
 	//calculate fee of each provider
 	var eventChainFee = 0.025 * revenue + 0.79 * parseFloat(totalTicketQuantity);
-	console.log("revenue = " + revenue);
+	console.log("revenue = " + revenue.toLocaleString());
 	console.log("totalTicketQuantity = " + totalTicketQuantity);
 	console.log("eventChainFee = " + eventChainFee);
-	var eventBriteFee = 0.035 * revenue + 1.65 * parseFloat(totalTicketQuantity);
 	
-	var eventChainFeeRounded = parseFloat(eventChainFee).toFixed(2);
-	var eventBriteFeeRounded = parseFloat(eventBriteFee).toFixed(2);
-	var savingsFee = parseFloat(eventBriteFeeRounded - eventChainFeeRounded).toFixed(2);
-	var currencySelected = $("#selectedCurrency").val();
+	var currencySelected = "$";
 	var eventChainDonation = parseFloat(eventChainFee * 0.1).toFixed(2);
 	
-	$("#revenue").val(revenueRounded);
-	$('#eventChainFee').text(currencySelected + " " + eventChainFeeRounded);
-	$('#savingsFee').text(currencySelected + " " + savingsFee);
-	$('#eventchainDonation').text(currencySelected + " " + eventChainDonation);
+	$("#revenue").val(numberWithCommas(revenueRounded));
+	$('#eventchainDonation').text(currencySelected + " " + numberWithCommas(eventChainDonation));
 }
 
 $(".fee-button").click(function(){
