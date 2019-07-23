@@ -53,9 +53,8 @@ function calculateFee() {
 	
 	$("#revenue").val(revenueRounded);
 	$('#eventChainFee').text(currencySelected + " " + eventChainFeeRounded);
-	$('#eventBriteFee').text(currencySelected + " " + eventBriteFeeRounded);
 	$('#savingsFee').text(currencySelected + " " + savingsFee);
-	$('#eventChainDonation').text(currencySelected + " " + eventChainDonation);
+	$('#eventchainDonation').text(currencySelected + " " + eventChainDonation);
 }
 
 $(".fee-button").click(function(){

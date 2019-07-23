@@ -151,13 +151,3 @@ table {
     align-items: stretch;
     width: 100%;
 }
-
-#savingsFee {
-    vertical-align:middle;
-    text-shadow: 1px 2px 2px grey;
-}
-
-#savingsEventChain {
-    vertical-align:middle;
-    text-shadow: 1px 2px 2px grey;
-}
